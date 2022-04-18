@@ -1,3 +1,4 @@
+# Removing first and last element
 def middle(lst):
     arr = []
     for a in range(1,len(lst)-1):
@@ -7,6 +8,7 @@ def middle(lst):
 
 answer = middle([12,54,78,45,98,23])
 
+# Sum of diagonal elements
 def sumDiagonal(a):
     start = 0
     sum = 0
@@ -19,6 +21,7 @@ def sumDiagonal(a):
 
 answer = sumDiagonal([[1,2,3],[4,5,6],[7,8,9]])
 
+# Find the first and second largest element in list
 def firstSecond(givenList):
     max1 = givenList[0]
     for i in range(len(givenList)):
@@ -39,9 +42,12 @@ def firstSecond(givenList):
     
 answer = firstSecond([84,85,86,87,85,90,85,83,23,45,84,1,2,0])
 
+# Find missing number
 def missingNumber(myList,totalCount):
     for i in range(totalCount):
         if i+1 != myList[i]:
             return i+1
 
 answer = missingNumber([1,2,3,4,6],6)
+
+
