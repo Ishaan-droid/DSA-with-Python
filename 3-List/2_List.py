@@ -50,4 +50,16 @@ def missingNumber(myList,totalCount):
 
 answer = missingNumber([1,2,3,4,6],6)
 
+# Remove Duplicates
+def removeDuplicates(myList):
+    obj = {}
 
+    for a in myList:
+        if a not in obj:
+            obj[a] = 1
+        else : 
+            continue
+
+    return list(dict.keys(obj))
+
+removeDuplicates([1,1,2,2,3,4,5])
