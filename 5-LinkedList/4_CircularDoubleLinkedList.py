@@ -67,6 +67,39 @@ class CircularDoubleLinkedList:
         self.head.prev = newNode
         self.tail.next = newNode
         self.tail = newNode
+
+    def traverse(self):
+        current = self.head
+
+        while current:
+            print(current.val)
+            current = current.next
+
+            if current == self.head:
+                break
+
+    def reverseTraverse(self):
+        current = self.tail
+
+        while current:
+            print(current.val)
+            current = current.prev
+
+            if current == self.tail:
+                break
+
+    def searchNode(self,loc):
+        current = self.head
+        index = 0
+
+        while current:
+            if index == loc : return print('Node found', current.val)
+            current = current.next
+            index += 1
+
+            if current == self.head:
+                return print('Linked List out of bounds')
+
         
 
 
@@ -76,8 +109,10 @@ linkedList.createCircularDoubleLinkedList(5)
 linkedList.append(10)
 linkedList.append(15)
 linkedList.append(20)
-linkedList.insert(25,2) 
+linkedList.append(25) 
 
-for node in linkedList:
-    pprint(vars(node))
+linkedList.searchNode(-1)
+
+# for node in linkedList:
+    # pprint(vars(node))
     # print(node.val)
