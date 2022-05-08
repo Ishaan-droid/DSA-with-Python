@@ -1,3 +1,4 @@
+from os import curdir
 from random import randint
 
 class Node:
@@ -52,48 +53,54 @@ class LinkedList:
         for i in range(n):
             self.append(randint(min_value,max_value))
 
+        print(self)
         return self
 
     def removeDuplicates(self):
-        current = self.head
-        print(self)
-        # arr = []
+        # Solution 1 (Leetcode)
 
-        obj = {}
-
-        while current.next:
-            if current.next.val not in obj:
-                obj[current.val] = 1
-            else:
-                current.next = current.next.next
-                
-            current = current.next
-
+        # current = head
 
         # while current:
-        #     arr.append(current.val)
+        #     while current.next and current.val == current.next.val:
+        #         current.next = current.next.next
         #     current = current.next
         
-        # obj = {}
+        # return head
 
-        # for a in arr:
-        #     if a not in obj:
-        #         obj[a] = 1
-        #     else:
-        #         continue
+        # Solution 2
+
+        current = self.head
+        mySet = set([current.val])
+
+        while current.next:
+            if current.next.val in mySet:
+                current.next = current.next.next
+            else:
+                mySet.add(current.next.val)
+                current = current.next
         
-        # self.head = None
-        # self.tail = None
-
-        # for i in list(obj.keys()):
-        #     self.append(i)
-
         return self
+
+    def findNthFromLastElement(self, loc):
+        pointer1 = self.head
+        pointer2 = self.head
+
+        for i in range(loc):
+            pointer2 = pointer2.next
+
+        while pointer2:
+            pointer1 = pointer1.next
+            pointer2 = pointer2.next
+
+        return pointer1
 
 
 customLinkedList = LinkedList()
-customLinkedList.generate(10,0,5)
+customLinkedList.generate(5,0,5)
 
-x = customLinkedList.removeDuplicates()
+# x = customLinkedList.removeDuplicates()
+# x = customLinkedList.NthFromLastElement(2)
+x = customLinkedList.findNthFromLastElement(4)
 print(x)
             
