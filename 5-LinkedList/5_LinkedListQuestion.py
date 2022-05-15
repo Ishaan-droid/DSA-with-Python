@@ -1,4 +1,3 @@
-from os import curdir
 from random import randint
 
 class Node:
